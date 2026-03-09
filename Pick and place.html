@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Futuristic Robotics Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#020617;
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+p{
+font-size:22px;
+line-height:1.8;
+}
+
+.normal-text{ font-size:16px; line-height:1.6; }
+
+/* ===== BACKGROUND GRID ===== */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(#0ea5e922 1px,transparent 1px),
+linear-gradient(90deg,#0ea5e922 1px,transparent 1px);
+background-size:50px 50px;
+z-index:-1;
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:40px;
+padding:18px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+nav a{
+color:#94a3b8;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#22c55e;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Orbitron';
+font-size:80px;
+background:linear-gradient(90deg,#22c55e,#38bdf8,#6366f1);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+margin-top:20px;
+font-size:20px;
+max-width:700px;
+color:#94a3b8;
+}
+
+.start-btn{
+margin-top:40px;
+padding:15px 40px;
+border-radius:30px;
+border:none;
+background:#22c55e;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.start-btn:hover{
+transform:scale(1.1);
+}
+
+/* ===== SECTIONS ===== */
+
+section{
+padding:120px 10%;
+}
+
+.title{
+font-family:'Orbitron';
+font-size:40px;
+margin-bottom:50px;
+text-align:center;
+}
+
+/* ===== CARDS ===== */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#020617;
+border:1px solid #1e293b;
+padding:30px;
+border-radius:15px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:100%;
+height:3px;
+background:linear-gradient(90deg,#22c55e,#38bdf8);
+top:0;
+left:0;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#38bdf8;
+box-shadow:0 0 20px #38bdf855;
+}
+
+/* ===== WORKING STEPS ===== */
+
+.timeline{
+border-left:3px solid #22c55e;
+padding-left:30px;
+}
+
+.step{
+margin-bottom:40px;
+}
+
+.step h3{
+color:#22c55e;
+margin-bottom:10px;
+}
+
+/* ===== STATS ===== */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.stat{
+background:#020617;
+border:1px solid #1e293b;
+padding:40px;
+border-radius:12px;
+}
+
+.stat h2{
+font-size:45px;
+color:#38bdf8;
+}
+
+/* ===== TEAM ===== */
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+}
+
+.member{
+background:#020617;
+border:1px solid #1e293b;
+padding:30px;
+border-radius:15px;
+text-align:center;
+transition:0.3s;
+}
+
+.member:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #22c55e55;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:40px;
+border-top:1px solid #1e293b;
+color:#94a3b8;
+}
+
+/* Methodology Timeline Style */
+
+.timeline-method{
+border-left:6px solid #22c55e;
+padding-left:40px;
+max-width:1100px;
+margin:auto;
+}
+
+/* Each step block */
+
+.method-step{
+margin-bottom:70px;
+}
+
+/* Step titles */
+
+.method-step h3{
+color:#22c55e;
+font-size:40px;
+margin-bottom:15px;
+font-family:'Orbitron',sans-serif;
+}
+
+/* Bullet text */
+
+.method-step ul{
+font-size:28px;
+line-height:2;
+margin-left:20px;
+color:#e2e8f0;
+}
+
+/* Formula styling */
+
+.formula{
+font-size:36px;
+margin:20px 0;
+font-family:monospace;
+color:#e2e8f0;
+}
+
+/* Section title */
+
+.title{
+font-size:70px;
+text-align:center;
+margin-bottom:60px;
+}
+
+
+
+.ik-images{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.ik-images img{
+width:300px;
+}
+
+
+.github-btn{
+margin-top:30px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#24292e;
+color:white;
+cursor:pointer;
+transition:all 0.3s ease;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.github-btn:hover{
+background:#2ea44f;
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 0 15px #2ea44f,
+            0 0 30px #2ea44f55;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#about">Introduction</a>
+<a href="#objectives">Objectives</a>
+<a href="#components">Components</a>
+<a href="#working">Working</a>
+<a href="#simulation">Simulation</a>
+<a href="#challenges">Challenges</a>
+<a href="#results">Results</a>
+<a href="#team">Team</a>
+</nav>
+
+<section class="hero">
+
+<h1>ROBO-CAR WITH PICK & PLACE ARM</h1>
+
+<p>
+Course: 22AIE214
+</p>
+
+<p>
+Team 9
+</p>
+
+
+<button class="start-btn"
+onclick="document.getElementById('about').scrollIntoView()">
+Start Presentation
+</button>
+
+<!-- ROBOT ANIMATION -->
+
+<div class="robot">
+<div class="head"></div>
+<div class="body"></div>
+<div class="arm left"></div>
+<div class="arm right"></div>
+<div class="leg left"></div>
+<div class="leg right"></div>
+</div>
+
+</section>
+
+
+<section id="about">
+
+<h2 class="title">Introduction</h2>
+
+<div class="card">
+
+<p>
+• Mobile manipulators combine a <b>mobile robot base and a robotic arm</b> to perform tasks like picking, placing, and transporting objects.
+</p>
+
+<br>
+
+<p>
+• These systems are widely used in <b>industrial automation, warehouses, and service robotics</b>.
+</p>
+
+<br>
+
+<p>
+• The main aim of this project is to design and develop a <b>mobile manipulator capable of performing pick-and-place operations</b>.
+</p>
+
+<br>
+
+<p>
+• A <b>simulation model was developed using Python and Pygame</b> to test inverse kinematics and arm movement before implementing the hardware.
+</p>
+
+<br>
+
+<p>
+• The <b>hardware prototype integrates a robotic arm, gripper, and mobile base</b> to demonstrate real-time object manipulation.
+</p>
+
+<br>
+
+<p>
+• This project helps understand <b>robot kinematics, motion control, and automation concepts</b> through both simulation and practical implementation.
+</p>
+
+</div>
+
+</section>
+
+<section id="objectives">
+
+<h2 class="title">Objectives</h2>
+
+<div class="card">
+
+<p>
+• To design and develop a <b>mobile manipulator system</b> capable of performing pick-and-place operations.
+</p>
+
+<br>
+
+<p>
+• To implement a <b>simulation model using Python and Pygame</b> to visualize the robotic arm movement and test inverse kinematics.
+</p>
+
+<br>
+
+<p>
+• To develop a <b>hardware prototype integrating a mobile base, robotic arm, and gripper</b>.
+</p>
+
+<br>
+
+<p>
+• To apply <b>inverse kinematics and motion control techniques</b> for accurate positioning of the robotic arm.
+</p>
+
+<br>
+
+<p>
+• To demonstrate the <b>coordination between the mobile platform and the robotic arm</b> for object handling.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="components">
+
+<h2 class="title">Hardware Components Used</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3><b>1. Microcontroller (ESP32)</b></h3>
+<p class="normal-text">
+The ESP32 acts as the main controller of the robot. It processes commands received from the mobile application via Bluetooth and controls the motors, servo motors, ultrasonic sensor, and gripper mechanism.
+</p>
+</div>
+
+<div class="card">
+<h3><b>2. Ultrasonic Sensor (HC-SR04)</b></h3>
+<p class="normal-text">
+The HC-SR04 ultrasonic sensor detects nearby objects by measuring distance using ultrasonic sound waves. It helps the robot determine when an object is within the picking range.
+</p>
+</div>
+
+<div class="card">
+<h3><b>3. DC Motors</b></h3>
+<p class="normal-text">
+DC motors drive the mobile robot base and allow movement in different directions such as forward, backward, left, and right.
+</p>
+</div>
+
+<div class="card">
+<h3><b>4. Motor Driver Module (L298N)</b></h3>
+<p class="normal-text">
+The L298N motor driver controls the direction and speed of the DC motors and acts as an interface between the ESP32 controller and the motors.
+</p>
+</div>
+
+<div class="card">
+<h3><b>5. Servo Motors (MG996R)</b></h3>
+<p class="normal-text">
+High torque servo motors such as MG996R are used to control the joints of the robotic arm and the gripper mechanism, providing precise angular movement.
+</p>
+</div>
+
+<div class="card">
+<h3><b>6. Robotic Arm Links</b></h3>
+<p class="normal-text">
+The robotic arm consists of two mechanical links forming a two-link manipulator structure that allows the arm to reach the object.
+</p>
+</div>
+
+<div class="card">
+<h3><b>7. Gripper Mechanism</b></h3>
+<p class="normal-text">
+The gripper is the end-effector attached to the robotic arm. It opens and closes using a servo motor to pick and place objects.
+</p>
+</div>
+
+<div class="card">
+<h3><b>8. Robot Chassis with Wheels</b></h3>
+<p class="normal-text">
+A four-wheel robotic chassis forms the mobile base of the system and supports the robotic arm, motors, battery, and electronic components.
+</p>
+</div>
+
+<div class="card">
+<h3><b>9. Battery / Power Supply</b></h3>
+<p class="normal-text">
+A rechargeable battery pack supplies power to the ESP32 controller, motors, and servo motors to operate the entire robotic system.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="architecture">
+
+<h2 class="title">System Architecture</h2>
+<div class="card">
+<p>
+• <b>Mobile Base Unit</b> – Provides movement for the robot in the workspace using motors and wheels.
+</p>
+
+<p>
+• <b>Robotic Arm Mechanism</b> – A two-link robotic arm mounted on the mobile base for reaching and manipulating objects.
+</p>
+
+<p>
+• <b>Gripper Mechanism</b> – End-effector used to pick and place objects securely.
+</p>
+
+<p>
+• <b>Control Unit</b> – Microcontroller or controller used to process commands and control motors and servos.
+</p>
+
+<p>
+• <b>Simulation Module</b> – Python and Pygame environment used to model the robot, test inverse kinematics, and visualize motion before hardware implementation.
+</p>
+
+<p>
+• <b>Power Supply System</b> – Provides required power to motors, servos, and control electronics.
+</p>
+
+<p>
+• <b>User Interface / Input Control</b> – Allows the user to control the mobile base and robotic arm movements.
+</p>
+</div>
+</section>
+
+
+<section id="working">
+
+<h2 class="title">Hardware Implementation</h2>
+
+<div class="timeline">
+
+<div class="step">
+<h3>Start</h3>
+<p>The system is powered ON and the robot begins initialization.</p>
+</div>
+
+<div class="step">
+<h3>Step 1 – Power Supply</h3>
+<p>
+The battery supplies power to the <b>ESP32 controller, servo motors, DC motors through the L298N motor driver module, and the HC-SR04 ultrasonic sensor</b>.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 2 – System Initialization</h3>
+<p>
+The ESP32 initializes all connected components including the motor driver, ultrasonic sensor, and servo motors. 
+Bluetooth communication is then activated to receive commands from the mobile application.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 3 – Mobile App Control</h3>
+<p>
+The user connects a mobile application to the ESP32 via <b>Bluetooth</b> and sends movement commands to control the robot.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 4 – Robot Navigation</h3>
+<p>
+The robot base moves according to commands received from the mobile application while the ultrasonic sensor continuously monitors nearby objects.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 5 – Object Detection</h3>
+<p>
+When the ultrasonic sensor detects an object within a predefined distance, the ESP32 stops the robot near the object.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 6 – Arm Movement</h3>
+<p>
+The robotic arm moves to the predefined picking position using <b>servo motors controlled by the ESP32</b>.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 7 – Object Picking</h3>
+<p>
+The gripper closes to securely grasp the detected object.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 8 – Object Transportation</h3>
+<p>
+The robot is navigated to the destination location using the mobile application controls.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 9 – Object Placement</h3>
+<p>
+The robotic arm moves to the placing position and the gripper opens to release the object.
+</p>
+</div>
+
+<div class="step">
+<h3>End</h3>
+<p>The pick-and-place operation is completed successfully.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="methodology">
+
+<h2 class="title">Simulation Implementation</h2>
+
+<div class="method-step">
+<h3>Step 1: Simulation Development</h3>
+
+<ul>
+<li>A simulation environment is developed using Python and Pygame.</li>
+
+<li>The robotic arm is modeled as a two-link planar manipulator attached to the mobile base.</li>
+
+<li>The simulation visually represents the robot base, arm links, joints, gripper, objects, and workspace grid.</li>
+
+<li>This environment helps analyze and verify robot motion before real implementation.</li>
+</ul>
+
+</div>
+
+<div class="method-step">
+
+<h3>Step 2: Inverse Kinematics</h3>
+
+<p>
+Inverse kinematics is used to calculate the required joint angles so that the robotic arm can reach the target position (x, y).
+</p>
+
+<div class="ik-images">
+
+<img src="/Users/dhirajsolleti/Desktop/untitled folder/Screenshot 2026-03-08 at 4.47.36 PM.png" alt="Inverse Kinematics Formula 1">
+
+<img src="/Users/dhirajsolleti/Desktop/untitled folder/Screenshot 2026-03-08 at 4.45.40 PM.png" alt="Inverse Kinematics Formula 2">
+
+</div>
+
+<ul>
+<li>These equations determine the joint angles of the robotic arm.</li>
+<li>The calculated angles control the servo motors to reach the object.</li>
+</ul>
+
+</div>
+
+
+
+<div class="method-step">
+<h3>Step 3: Arm Motion Control</h3>
+<ul>
+<li>Servo motors rotate according to calculated joint angles.</li>
+<li>Gradual angle updates simulate realistic servo motor movement.</li>
+<li>Forward kinematics calculates intermediate joint positions.</li>
+</ul>
+</div>
+
+<div class="method-step">
+<h3>Step 4: Object Detection & Gripper Operation</h3>
+<ul>
+<li>The system checks distance between the <b>end-effector and object</b>.</li>
+<li>The <b>gripper closes</b> when the object is reached.</li>
+<li>The arm transports the object to the destination location.</li>
+</ul>
+</div>
+
+</section>
+
+
+<section id="simulation">
+
+<h2 class="title">Robot Simulation</h2>
+
+<div class="card" style="text-align:center">
+
+<button id="runSimBtn" class="start-btn">Run Simulation</button>
+
+<br><br>
+
+<canvas id="simCanvas" width="1200" height="700"
+style="background:#f0f0f0;border-radius:10px"></canvas>
+
+<p style="margin-top:20px">
+Arrow Keys → Move Robot | Press P → Place Object
+</p>
+
+</div>
+
+</section>
+
+<section id="challenges">
+
+<h2 class="title">Challenges Faced</h2>
+
+<div class="card">
+
+<p>
+• Inverse kinematics implementation – Calculating accurate joint angles for the robotic arm to reach a specific target position required correct mathematical modeling and careful implementation.
+</p>
+
+<br>
+
+<p>
+• Smooth arm movement – Achieving smooth and realistic arm motion required gradual angle updates to simulate the behavior of servo motors.
+</p>
+
+<br>
+
+<p>
+• Object detection and pickup logic – Ensuring that the end-effector correctly detects when it reaches the object and triggers the gripper mechanism.
+</p>
+
+<br>
+
+<p>
+• Synchronization between arm and mobile base – Coordinating the movement of the mobile robot platform and the robotic arm within the workspace.
+</p>
+
+<br>
+
+<p>
+• Simulation accuracy – Designing the simulation so that it closely represents the behavior of the real hardware system while maintaining smooth performance.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="results">
+<div class="card">
+<h2 class="title">Results</h2>
+
+<p>
+• A simulation model of the <b>mobile manipulator system</b> was successfully developed using <b>Python and Pygame</b>.
+</p>
+
+<p>
+• The <b>inverse kinematics algorithm</b> correctly calculated the joint angles required for the robotic arm to reach the target coordinates.
+</p>
+
+<p>
+• The robotic arm demonstrated <b>smooth and continuous motion</b>, simulating realistic servo motor movement.
+</p>
+
+<p>
+• The <b>end-effector successfully reached the objects</b> placed in the workspace.
+</p>
+
+<p>
+• The <b>gripper mechanism effectively performed pick-and-place operations</b> within the simulation environment.
+</p>
+
+<p>
+• The simulation displayed important parameters such as <b>joint angles (θ₁, θ₂) and end-effector position</b>.
+</p>
+
+<p>
+• The workspace visualization helped in understanding the <b>reachable area of the robotic arm</b>.
+</p>
+
+<p>
+• The simulation results confirmed that the <b>control logic and inverse kinematics implementation work correctly</b>.
+</p>
+
+</div>
+</section>
+
+<section id="team">
+
+<h2 class="title">Project Team</h2>
+
+<div class="team-grid">
+
+<div class="member">
+<h3>P Deekshith</h3>
+<p class="normal-text">CB.SC.U4AIE24039 </p>
+</div>
+
+<div class="member">
+<h3>S Sathwik</h3>
+<p class="normal-text">CB.SC.U4AIE24051</p>
+</div>
+
+<div class="member">
+<h3>S V Dhiraj</h3>
+<p class="normal-text">CB.SC.U4AIE24052</p>
+</div>
+
+<div class="member">
+<h3>TMSK Maheswar</h3>
+<p class="normal-text">CB.SC.U4AIE24058</p>
+</div>
+
+</div>
+
+</section>
+
+<button class="github-btn"
+onclick="window.open('https://github.com/Dhiraj-0202/Robo-car-with-pick-and-place-arm','_blank')">
+View Project on GitHub
+</button>
+
+
+<footer>
+<p><b>THANK YOU</b></p>
+</footer>
+
+<script>
+
+const canvas=document.getElementById("simCanvas")
+const ctx=canvas.getContext("2d")
+
+let simulationRunning=false
+
+const runBtn=document.getElementById("runSimBtn")
+
+runBtn.addEventListener("click",()=>{
+
+resetSimulation()
+
+simulationRunning=true
+
+runBtn.innerText="Restart Simulation"
+
+update()
+
+})
+
+const WIDTH=1200
+const HEIGHT=700
+
+const L1=150
+const L2=120
+
+let carX=250
+let carY=600
+
+let theta1=0
+let theta2=0
+
+let currentObject=null
+let pickDelay=0
+
+let gripperTarget=20
+let gripperCurrent=20
+
+let objects=[
+{x:950,y:450,picked:false,placed:false,destX:300,destY:250},
+{x:1050,y:350,picked:false,placed:false,destX:550,destY:250}
+]
+
+let keys={}
+
+document.addEventListener("keydown",e=>{
+
+if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)){
+e.preventDefault()
+}
+
+if(!simulationRunning) return
+
+keys[e.key]=true
+
+if(e.key==="p" && currentObject){
+
+currentObject.picked=false
+currentObject.placed=true
+currentObject=null
+
+gripperTarget=20
+
+}
+
+})
+
+document.addEventListener("keyup",e=>{
+
+if(!simulationRunning) return
+
+keys[e.key]=false
+
+})
+function resetSimulation(){
+
+carX=250
+carY=600
+
+theta1=0
+theta2=0
+
+currentObject=null
+pickDelay=0
+
+gripperTarget=20
+gripperCurrent=20
+
+objects=[
+{x:950,y:450,picked:false,placed:false,destX:300,destY:250},
+{x:1050,y:350,picked:false,placed:false,destX:550,destY:250}
+]
+
+}
+function inverseKinematics(x,y){
+
+let D=(x*x+y*y-L1*L1-L2*L2)/(2*L1*L2)
+D=Math.max(-1,Math.min(1,D))
+
+let t2=Math.acos(D)
+
+let t1=Math.atan2(y,x)-Math.atan2(L2*Math.sin(t2),L1+L2*Math.cos(t2))
+
+return[t1,t2]
+
+}
+
+function drawGrid(){
+
+for(let i=0;i<WIDTH;i+=50){
+
+ctx.beginPath()
+ctx.moveTo(i,0)
+ctx.lineTo(i,HEIGHT)
+ctx.strokeStyle="#ddd"
+ctx.stroke()
+
+}
+
+for(let j=0;j<HEIGHT;j+=50){
+
+ctx.beginPath()
+ctx.moveTo(0,j)
+ctx.lineTo(WIDTH,j)
+ctx.strokeStyle="#ddd"
+ctx.stroke()
+
+}
+
+}
+
+function update(){
+let robotSpeed = 2
+
+if(keys["ArrowUp"]) carY-=robotSpeed
+if(keys["ArrowDown"]) carY+=robotSpeed
+if(keys["ArrowLeft"]) carX-=robotSpeed
+if(keys["ArrowRight"]) carX+=robotSpeed
+let targetX=carX
+let targetY=carY
+
+if(currentObject){
+
+targetX=currentObject.x
+targetY=currentObject.y
+
+}else{
+
+for(let obj of objects){
+
+if(!obj.picked && !obj.placed){
+
+targetX=obj.x
+targetY=obj.y
+break
+
+}
+
+}
+
+}
+
+let dx=targetX-carX
+let dy=targetY-carY
+
+let ik=inverseKinematics(dx,dy)
+
+theta1+=(ik[0]-theta1)*0.1
+theta2+=(ik[1]-theta2)*0.1
+
+let x1=carX+L1*Math.cos(theta1)
+let y1=carY+L1*Math.sin(theta1)
+
+let x2=x1+L2*Math.cos(theta1+theta2)
+let y2=y1+L2*Math.sin(theta1+theta2)
+
+if(!currentObject){
+
+for(let obj of objects){
+
+if(!obj.picked && !obj.placed){
+
+let dist=Math.hypot(x2-obj.x,y2-obj.y)
+
+if(dist<30){
+
+gripperTarget=5
+
+pickDelay++
+
+if(pickDelay>20){
+
+obj.picked=true
+currentObject=obj
+pickDelay=0
+
+}
+
+}
+
+}
+
+}
+
+}else{
+
+currentObject.x=x2
+currentObject.y=y2
+
+}
+
+gripperCurrent+=(gripperTarget-gripperCurrent)*0.2
+
+draw(x1,y1,x2,y2)
+
+if(simulationRunning){
+requestAnimationFrame(update)
+}
+}
+function draw(x1,y1,x2,y2){
+
+ctx.clearRect(0,0,WIDTH,HEIGHT)
+
+drawGrid()
+
+ctx.beginPath()
+ctx.arc(carX,carY,L1+L2,0,Math.PI*2)
+ctx.strokeStyle="#aaccee"
+ctx.stroke()
+
+ctx.fillStyle="blue"
+ctx.fillRect(carX-70,carY,140,40)
+
+ctx.fillStyle="black"
+
+ctx.beginPath()
+ctx.arc(carX-50,carY+40,20,0,Math.PI*2)
+ctx.fill()
+
+ctx.beginPath()
+ctx.arc(carX+50,carY+40,20,0,Math.PI*2)
+ctx.fill()
+
+ctx.lineWidth=12
+
+ctx.beginPath()
+ctx.moveTo(carX,carY)
+ctx.lineTo(x1,y1)
+ctx.strokeStyle="red"
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(x1,y1)
+ctx.lineTo(x2,y2)
+ctx.strokeStyle="green"
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(carX,carY,10,0,Math.PI*2)
+ctx.fill()
+
+ctx.beginPath()
+ctx.arc(x1,y1,10,0,Math.PI*2)
+ctx.fill()
+
+let gripLen=40
+let angle=theta1+theta2
+
+let gx1=x2+gripLen*Math.cos(angle+Math.PI/2)
+let gy1=y2+gripLen*Math.sin(angle+Math.PI/2)
+
+let gx2=x2+gripLen*Math.cos(angle-Math.PI/2)
+let gy2=y2+gripLen*Math.sin(angle-Math.PI/2)
+
+ctx.lineWidth=6
+ctx.strokeStyle="black"
+
+ctx.beginPath()
+ctx.moveTo(x2,y2)
+ctx.lineTo(
+gx1+gripperCurrent*Math.cos(angle),
+gy1+gripperCurrent*Math.sin(angle)
+)
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(x2,y2)
+ctx.lineTo(
+gx2+gripperCurrent*Math.cos(angle),
+gy2+gripperCurrent*Math.sin(angle)
+)
+ctx.stroke()
+
+for(let obj of objects){
+
+ctx.fillStyle="red"
+ctx.fillRect(obj.x-20,obj.y-20,40,40)
+
+ctx.strokeStyle="green"
+ctx.strokeRect(obj.destX-35,obj.destY-35,70,70)
+
+}
+
+ctx.fillStyle="black"
+ctx.font="20px Arial"
+
+ctx.fillText("Theta1: "+(theta1*180/Math.PI).toFixed(1)+" deg",20,30)
+ctx.fillText("Theta2: "+(theta2*180/Math.PI).toFixed(1)+" deg",20,60)
+ctx.fillText("End Effector: ("+Math.round(x2)+","+Math.round(y2)+")",20,90)
+
+let status="IDLE"
+
+if(currentObject)
+status="HOLDING OBJECT - Press P to Place"
+
+ctx.fillText(status,20,120)
+
+}
+
+
+</script>
+
+
+
+
+</body>
+</html>
+
